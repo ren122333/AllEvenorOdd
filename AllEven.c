@@ -1,10 +1,10 @@
 #include <stdio.h>
  
 int main() {
-    int a, b, c;
+    int a, b, d;
     printf("Please enter the numbers");
-    scanf("%d, %d, %d", &a, &b, &c);
-    if (a%2 == b%2 && b%2 == c%2){
+    scanf("%d, %d, %d", &a, &b, &d);
+    if (a%2 == b%2 && b%2 == d%2){
         printf("True");
         return(1);
     }
