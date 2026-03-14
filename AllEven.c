@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
  
 int main() {
     int a, b, d;
@@ -15,4 +16,13 @@ int main() {
     }
     printf("False");
     return 0;
+}
+void print_current_time() {
+    printf("current time 19:51");
+}
+ 
+void print_calendar() {
+    printf("Календарь\n");  
+    printf("Пн Вт Ср Чт Пт Сб Вс\n");    
+    printf(" 1  2  3  4  5  6  7\n");
 }
