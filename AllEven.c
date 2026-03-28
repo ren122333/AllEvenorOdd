@@ -1,7 +1,27 @@
 #include <stdio.h>
-#include <time.h>
- 
+#include "Time.c"
+#include "AllEven.h"
+
+#define person(Location, Name) Location.name = Name; Location.age = 20;
+
+struct person
+{
+    char * name;
+    int age;
+};
+
 int main() {
+    struct person school[5];
+    person(school[1], "Daniel");
+    school[0].name = "Daniel";
+    school[0].age = 20;
+    #ifdef __clang__
+        puts("Clang compiler");
+    #elif __GNUC__
+        puts("GCC compiler");
+    #else
+        puts("Undefined compiler");
+    #endif
     int a, b, d;
     printf("Please enter the numbers");
     scanf("%d, %d, %d", &a, &b, &d);
@@ -16,33 +36,4 @@ int main() {
     }
     printf("False");
     return 0;
-}
-void print_current_time() {
-    time_t raw_time;
-    struct tm *time_info;
-    time(&raw_time);
-    time_info = localtime(&raw_time);
-    printf("Текущее время: %02d:%02d:%02d\n", 
-           time_info->tm_hour, 
-           time_info->tm_min, 
-           time_info->tm_sec);
-}
- 
-void print_calendar() {
-    printf("Календарь\n");  
-    printf("Пн Вт Ср Чт Пт Сб Вс\n");    
-    printf(" 1  2  3  4  5  6  7\n");
-        time_t raw_time;
-    struct tm *time_info;
-    time(&raw_time);
-    time_info = localtime(&raw_time);
-    char *days[] = {"Воскресенье", "Понедельник", "Вторник", "Среда", 
-                    "Четверг", "Пятница", "Суббота"};
-    char *months[] = {"Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
-                      "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"};
-    printf("Календарь: %s, %d %s %d года\n",
-           days[time_info->tm_wday],
-           time_info->tm_mday,
-           months[time_info->tm_mon],
-           time_info->tm_year + 1900);
 }
